@@ -4,7 +4,7 @@ from .models import Job
 from django.http import FileResponse, Http404
 
 def home(request):
-    jobs = Job.objects
+    jobs = Job.objects.all().order_by('id')
     return render(request, 'jobs/home.html', {'jobs':jobs})
 
 # def resume(request):
